@@ -11,8 +11,7 @@
     <script src="https://supertestnet.github.io/nostr_p2p/nostr_p2p.js"></script>
     <script>
       var relays = ["wss://nostrue.com" ];
-      var seckeys = ["ab".repeat( 32 ),"ba".repeat( 32 )];
-      var seckey = seckeys[ Math.floor( Math.random() * seckeys.length ) ];
+      var seckey = "ab".repeat( 32 );
       var node = nostr_p2p( relays, seckey );
       (async()=>{
         await node.connect();
