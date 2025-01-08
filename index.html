@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Getting Started</title>
+    <script>
+      var nostr_p2p = null;
+    </script>
+  </head>
+  <body>
+    <script src="./main.js"></script>
+    <script>
+      var relays = ["wss://nostrue.com" ];
+      var seckeys = ["ab".repeat( 32 ),"ba".repeat( 32 )];
+      var seckey = seckeys[ Math.floor( Math.random() * seckeys.length ) ];
+      var node = nostr_p2p( relays, seckey );
+      (async()=>{
+        await node.connect();
+        node.event.on( 'init', console.log( 'node connected!' ) );
+      })();
+    </script>
+  </body>
+</html>
